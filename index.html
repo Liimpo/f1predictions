@@ -13,7 +13,7 @@
             color: #333;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             background: white;
             padding: 20px;
@@ -54,15 +54,12 @@
         .ranking-title {
             margin-bottom: 10px;
             font-weight: bold;
+            font-size: 18px;
         }
         .ranking-item {
             display: flex;
             align-items: center;
             margin: 10px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
         }
         .ranking-position {
             background: #3498db;
@@ -75,39 +72,24 @@
             justify-content: center;
             margin-right: 15px;
             font-weight: bold;
+            flex-shrink: 0;
         }
         .ranking-item:nth-child(1) .ranking-position {
-            background: #f1c40f; /* Gold */
+            background: #f1c40f;
         }
         .ranking-item:nth-child(2) .ranking-position {
-            background: #95a5a6; /* Silver */
+            background: #95a5a6;
         }
         .ranking-item:nth-child(3) .ranking-position {
-            background: #e67e22; /* Bronze */
+            background: #e67e22;
         }
         .ranking-select {
             flex: 1;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             background: white;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #3498db;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+            font-size: 16px;
         }
         button {
             padding: 10px 15px;
@@ -117,7 +99,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         button:hover {
             background: #2980b9;
@@ -130,8 +112,96 @@
             border-radius: 4px;
             font-size: 16px;
         }
-        #teamSelect, #driverSelect {
+        /* Results Page Styles */
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .user-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .user-details h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .user-score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .user-card.expanded {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .predictions-display {
             display: none;
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .user-card.expanded .predictions-display {
+            display: block;
+        }
+        .prediction-section {
+            margin-bottom: 10px;
+        }
+        .prediction-section h4 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .prediction-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .prediction-item {
+            background: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .prediction-item.top1 {
+            background: #f1c40f;
+            color: white;
+        }
+        .prediction-item.top2 {
+            background: #95a5a6;
+            color: white;
+        }
+        .prediction-item.top3 {
+            background: #e67e22;
+            color: white;
         }
     </style>
 </head>
@@ -158,23 +228,23 @@
                     <div class="ranking-title">Rank the Top 5 Teams</div>
                     <div class="ranking-item">
                         <div class="ranking-position">1</div>
-                        <select class="ranking-select" id="team1"></select>
+                        <select class="ranking-select" id="team1" onchange="updateTeamOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">2</div>
-                        <select class="ranking-select" id="team2"></select>
+                        <select class="ranking-select" id="team2" onchange="updateTeamOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">3</div>
-                        <select class="ranking-select" id="team3"></select>
+                        <select class="ranking-select" id="team3" onchange="updateTeamOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">4</div>
-                        <select class="ranking-select" id="team4"></select>
+                        <select class="ranking-select" id="team4" onchange="updateTeamOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">5</div>
-                        <select class="ranking-select" id="team5"></select>
+                        <select class="ranking-select" id="team5" onchange="updateTeamOptions(this)"></select>
                     </div>
                 </div>
 
@@ -182,23 +252,23 @@
                     <div class="ranking-title">Rank the Top 5 Drivers</div>
                     <div class="ranking-item">
                         <div class="ranking-position">1</div>
-                        <select class="ranking-select" id="driver1"></select>
+                        <select class="ranking-select" id="driver1" onchange="updateDriverOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">2</div>
-                        <select class="ranking-select" id="driver2"></select>
+                        <select class="ranking-select" id="driver2" onchange="updateDriverOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">3</div>
-                        <select class="ranking-select" id="driver3"></select>
+                        <select class="ranking-select" id="driver3" onchange="updateDriverOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">4</div>
-                        <select class="ranking-select" id="driver4"></select>
+                        <select class="ranking-select" id="driver4" onchange="updateDriverOptions(this)"></select>
                     </div>
                     <div class="ranking-item">
                         <div class="ranking-position">5</div>
-                        <select class="ranking-select" id="driver5"></select>
+                        <select class="ranking-select" id="driver5" onchange="updateDriverOptions(this)"></select>
                     </div>
                 </div>
 
@@ -207,17 +277,7 @@
 
             <div id="results" class="tab-content">
                 <h2>League Results</h2>
-                <table id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Team Predictions</th>
-                            <th>Driver Predictions</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody"></tbody>
-                </table>
+                <div class="results-container" id="resultsContainer"></div>
             </div>
         </div>
     </div>
@@ -237,12 +297,16 @@
           appId: "1:1003727143580:web:aa6deba67bb51f3abfa359"
         };
 
-
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+        console.log("Firebase initialized:", firebase.app().name);
 
-// Tab switching
+        // Global variables for selected items
+        let selectedTeams = [];
+        let selectedDrivers = [];
+
+        // Tab switching
         function openTab(tabName) {
             const tabs = document.getElementsByClassName("tab");
             for (let tab of tabs) {
@@ -256,12 +320,76 @@
             document.getElementById(tabName).classList.add("active");
         }
 
+        // Update team options to prevent duplicates
+        function updateTeamOptions(selectElement) {
+            const selectedValue = selectElement.value;
+            const selectId = selectElement.id;
+
+            // Clear previous selection if changed
+            if (selectedTeams.includes(selectedValue)) {
+                selectedTeams = selectedTeams.filter(team => team !== selectedValue);
+            }
+
+            // Add new selection
+            if (selectedValue) {
+                selectedTeams.push(selectedValue);
+            }
+
+            // Update all team selects to disable selected options
+            for (let i = 1; i <= 5; i++) {
+                const select = document.getElementById(`team${i}`);
+                if (select.id !== selectId) {
+                    Array.from(select.options).forEach(option => {
+                        option.disabled = selectedTeams.includes(option.value) && option.value !== select.value;
+                    });
+                }
+            }
+        }
+
+        // Update driver options to prevent duplicates
+        function updateDriverOptions(selectElement) {
+            const selectedValue = selectElement.value;
+            const selectId = selectElement.id;
+
+            // Clear previous selection if changed
+            if (selectedDrivers.includes(selectedValue)) {
+                selectedDrivers = selectedDrivers.filter(driver => driver !== selectedValue);
+            }
+
+            // Add new selection
+            if (selectedValue) {
+                selectedDrivers.push(selectedValue);
+            }
+
+            // Update all driver selects to disable selected options
+            for (let i = 1; i <= 5; i++) {
+                const select = document.getElementById(`driver${i}`);
+                if (select.id !== selectId) {
+                    Array.from(select.options).forEach(option => {
+                        option.disabled = selectedDrivers.includes(option.value) && option.value !== select.value;
+                    });
+                }
+            }
+        }
+
         // Save predictions to Firebase
         function savePredictions() {
             const userName = localStorage.getItem("userName");
             if (!userName) {
                 alert("Please log in first!");
                 return;
+            }
+
+            // Validate all selections are made
+            for (let i = 1; i <= 5; i++) {
+                if (!document.getElementById(`team${i}`).value) {
+                    alert(`Please select Team ${i}`);
+                    return;
+                }
+                if (!document.getElementById(`driver${i}`).value) {
+                    alert(`Please select Driver ${i}`);
+                    return;
+                }
             }
 
             const predictions = {
@@ -295,24 +423,96 @@
                 });
         }
 
-        // Load predictions from Firebase
+        // Load predictions from Firebase and display as cards
         function loadResults() {
             database.ref('predictions').once('value')
                 .then((snapshot) => {
-                    const resultsBody = document.getElementById("resultsBody");
-                    resultsBody.innerHTML = "";
+                    const resultsContainer = document.getElementById("resultsContainer");
+                    resultsContainer.innerHTML = "";
+
+                    const predictions = [];
                     snapshot.forEach((childSnapshot) => {
-                        const data = childSnapshot.val();
-                        const row = document.createElement("tr");
-                        row.innerHTML = `
-                            <td>${data.userName}</td>
-                            <td>${data.teams.join(", ")}</td>
-                            <td>${data.drivers.join(", ")}</td>
-                            <td>${data.score}</td>
-                        `;
-                        resultsBody.appendChild(row);
+                        predictions.push(childSnapshot.val());
                     });
-                    document.getElementById("results").style.display = "block";
+
+                    // Sort predictions by score (descending)
+                    predictions.sort((a, b) => b.score - a.score);
+
+                    // Create a card for each prediction
+                    predictions.forEach((prediction, index) => {
+                        const card = document.createElement("div");
+                        card.className = "user-card";
+                        card.onclick = function() {
+                            this.classList.toggle("expanded");
+                        };
+
+                        // Create user info section
+                        const userInfo = document.createElement("div");
+                        userInfo.className = "user-info";
+
+                        const avatar = document.createElement("div");
+                        avatar.className = "user-avatar";
+                        avatar.textContent = prediction.userName.charAt(0).toUpperCase();
+
+                        const details = document.createElement("div");
+                        details.className = "user-details";
+
+                        const name = document.createElement("h3");
+                        name.textContent = prediction.userName;
+
+                        userInfo.appendChild(avatar);
+                        details.appendChild(name);
+                        userInfo.appendChild(details);
+
+                        // Create score section
+                        const score = document.createElement("div");
+                        score.className = "user-score";
+                        score.textContent = prediction.score;
+
+                        // Create predictions display (hidden by default)
+                        const predictionsDisplay = document.createElement("div");
+                        predictionsDisplay.className = "predictions-display";
+
+                        const teamsSection = document.createElement("div");
+                        teamsSection.className = "prediction-section";
+                        const teamsTitle = document.createElement("h4");
+                        teamsTitle.textContent = "Top 5 Teams";
+                        teamsSection.appendChild(teamsTitle);
+
+                        const teamsList = document.createElement("div");
+                        teamsList.className = "prediction-list";
+                        prediction.teams.forEach((team, i) => {
+                            const teamItem = document.createElement("div");
+                            teamItem.className = `prediction-item ${i < 3 ? 'top' + (i+1) : ''}`;
+                            teamItem.textContent = team;
+                            teamsList.appendChild(teamItem);
+                        });
+                        teamsSection.appendChild(teamsList);
+                        predictionsDisplay.appendChild(teamsSection);
+
+                        const driversSection = document.createElement("div");
+                        driversSection.className = "prediction-section";
+                        const driversTitle = document.createElement("h4");
+                        driversTitle.textContent = "Top 5 Drivers";
+                        driversSection.appendChild(driversTitle);
+
+                        const driversList = document.createElement("div");
+                        driversList.className = "prediction-list";
+                        prediction.drivers.forEach((driver, i) => {
+                            const driverItem = document.createElement("div");
+                            driverItem.className = `prediction-item ${i < 3 ? 'top' + (i+1) : ''}`;
+                            driverItem.textContent = driver;
+                            driversList.appendChild(driverItem);
+                        });
+                        driversSection.appendChild(driversList);
+                        predictionsDisplay.appendChild(driversSection);
+
+                        // Assemble the card
+                        card.appendChild(userInfo);
+                        card.appendChild(score);
+                        card.appendChild(predictionsDisplay);
+                        resultsContainer.appendChild(card);
+                    });
                 })
                 .catch((error) => {
                     console.error("Error loading results:", error);
@@ -338,8 +538,8 @@
                 console.log("Constructors:", constructors);
 
                 // Populate team dropdowns
-                ['team1', 'team2', 'team3', 'team4', 'team5'].forEach(selectId => {
-                    const select = document.getElementById(selectId);
+                for (let i = 1; i <= 5; i++) {
+                    const select = document.getElementById(`team${i}`);
                     select.innerHTML = '<option value="">Select Team</option>';
                     constructors.forEach(constructor => {
                         const option = document.createElement('option');
@@ -347,11 +547,11 @@
                         option.textContent = constructor.FUllName;
                         select.appendChild(option);
                     });
-                });
+                }
 
                 // Populate driver dropdowns
-                ['driver1', 'driver2', 'driver3', 'driver4', 'driver5'].forEach(selectId => {
-                    const select = document.getElementById(selectId);
+                for (let i = 1; i <= 5; i++) {
+                    const select = document.getElementById(`driver${i}`);
                     select.innerHTML = '<option value="">Select Driver</option>';
                     drivers.forEach(driver => {
                         const option = document.createElement('option');
@@ -359,7 +559,7 @@
                         option.textContent = `${driver.FUllName} (${driver.TeamName})`;
                         select.appendChild(option);
                     });
-                });
+                }
 
             } catch (error) {
                 console.error("Error loading F1 data:", error);
@@ -368,27 +568,25 @@
                 const drivers = ["Max Verstappen", "Sergio Pérez", "Lewis Hamilton", "George Russell", "Charles Leclerc"];
                 const constructors = ["Red Bull Racing", "Mercedes", "Ferrari", "McLaren", "Aston Martin"];
 
-                ['driver1', 'driver2', 'driver3', 'driver4', 'driver5'].forEach((selectId, index) => {
-                    const select = document.getElementById(selectId);
-                    select.innerHTML = '<option value="">Select Driver</option>';
-                    drivers.forEach(driver => {
-                        const option = document.createElement('option');
-                        option.value = driver;
-                        option.textContent = driver;
-                        select.appendChild(option);
-                    });
-                });
-
-                ['team1', 'team2', 'team3', 'team4', 'team5'].forEach((selectId, index) => {
-                    const select = document.getElementById(selectId);
-                    select.innerHTML = '<option value="">Select Team</option>';
+                for (let i = 1; i <= 5; i++) {
+                    const teamSelect = document.getElementById(`team${i}`);
+                    teamSelect.innerHTML = '<option value="">Select Team</option>';
                     constructors.forEach(constructor => {
                         const option = document.createElement('option');
                         option.value = constructor;
                         option.textContent = constructor;
-                        select.appendChild(option);
+                        teamSelect.appendChild(option);
                     });
-                });
+
+                    const driverSelect = document.getElementById(`driver${i}`);
+                    driverSelect.innerHTML = '<option value="">Select Driver</option>';
+                    drivers.forEach(driver => {
+                        const option = document.createElement('option');
+                        option.value = driver;
+                        option.textContent = driver;
+                        driverSelect.appendChild(option);
+                    });
+                }
             }
         }
 
