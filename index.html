@@ -176,43 +176,69 @@
         }
 
         // Load F1 data from the official API
-        async function loadF1Data() {
-            try {
-                const response = await fetch('https://fantasy.formula1.com/feeds/drivers/1_en.json?buster=20260302131625');
-                if (!response.ok) throw new Error("Failed to fetch F1 data");
-                const data = await response.json();
-                const drivers = data.drivers;
-                const constructors = data.constructors;
+    async function loadF1Data() {
+        try {
+            // Load the JSON file from your GitHub repo
+            const response = await fetch("f1-data.json"); // Path to your JSON file
+            if (!response.ok) throw new Error("Failed to fetch F1 data");
+            const data = await response.json();
+            const drivers = data.drivers;
+            const constructors = data.constructors;
 
-                // Populate driver dropdowns
-                const driverSelects = ['driver1', 'driver2', 'driver3'];
-                driverSelects.forEach(selectId => {
-                    const select = document.getElementById(selectId);
-                    select.innerHTML = '<option value="">Select Driver</option>';
-                    drivers.forEach(driver => {
-                        const option = document.createElement('option');
-                        option.value = `${driver.first_name} ${driver.last_name}`;
-                        option.textContent = `${driver.first_name} ${driver.last_name} (${driver.team_name})`;
-                        select.appendChild(option);
-                    });
+            // Populate driver dropdowns
+            const driverSelects = ['driver1', 'driver2', 'driver3'];
+            driverSelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Select Driver</option>';
+                drivers.forEach(driver => {
+                    const option = document.createElement('option');
+                    option.value = `${driver.first_name} ${driver.last_name}`;
+                    option.textContent = `${driver.first_name} ${driver.last_name} (${driver.team_name})`;
+                    select.appendChild(option);
                 });
+            });
 
-                // Populate constructor dropdowns
-                const constructorSelects = ['team1', 'team2', 'team3'];
-                constructorSelects.forEach(selectId => {
-                    const select = document.getElementById(selectId);
-                    select.innerHTML = '<option value="">Select Team</option>';
-                    constructors.forEach(constructor => {
-                        const option = document.createElement('option');
-                        option.value = constructor.name;
-                        option.textContent = constructor.name;
-                        select.appendChild(option);
-                    });
+            // Populate constructor dropdowns
+            const constructorSelects = ['team1', 'team2', 'team3'];
+            constructorSelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Select Team</option>';
+                constructors.forEach(constructor => {
+                    const option = document.createElement('option');
+                    option.value = constructor.name;
+                    option.textContent = constructor.name;
+                    select.appendChild(option);
                 });
-            } catch (error) {
-                console.error("Error loading F1 data:", error);
-            }
+            });
+        } catch (error) {
+            console.error("Error loading F1 data:", error);
+            // Fallback to hardcoded data if the file fails to load
+            const drivers = ["Max Verstappen", "Lewis Hamilton", "Charles Leclerc", "Lando Norris"];
+            const teams = ["Red Bull", "Mercedes", "Ferrari", "McLaren"];
+
+            ['driver1', 'driver2', 'driver3'].forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Select Driver</option>';
+                drivers.forEach(driver => {
+                    const option = document.createElement('option');
+                    option.value = driver;
+                    option.textContent = driver;
+                    select.appendChild(option);
+                });
+            });
+
+            ['team1', 'team2', 'team3'].forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Select Team</option>';
+                teams.forEach(team => {
+                    const option = document.createElement('option');
+                    option.value = team;
+                    option.textContent = team;
+                    select.appendChild(option);
+                });
+            });
         }
+    }
 
         // Check for saved username on page load
         window.onload = () => {
