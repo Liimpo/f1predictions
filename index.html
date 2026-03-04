@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 2026 Prediction League</title>
+    <title>F1 2026 Tipsliga</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -112,7 +112,7 @@
             border-radius: 4px;
             font-size: 16px;
         }
-        /* Results Page Styles */
+        /* Resultatsida */
         .results-container {
             display: flex;
             flex-direction: column;
@@ -207,25 +207,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>F1 2026 Prediction League</h1>
+        <h1>F1 2026 Tipsliga</h1>
 
         <div id="login">
-            <h2>Join the League</h2>
-            <input type="text" id="userName" placeholder="Enter Your Username" />
-            <button onclick="login()">Join</button>
+            <h2>Gå med i ligan</h2>
+            <input type="text" id="userName" placeholder="Ange ditt användarnamn" />
+            <button onclick="login()">Gå med</button>
         </div>
 
         <div id="mainContent" style="display: none;">
             <div class="tabs">
-                <button class="tab active" onclick="openTab('predictions')">Make Predictions</button>
-                <button class="tab" onclick="openTab('results')">League Results</button>
+                <button class="tab active" onclick="openTab('predictions')">Gör dina tips</button>
+                <button class="tab" onclick="openTab('results')">Ligaresultat</button>
             </div>
 
             <div id="predictions" class="tab-content active">
-                <h2>Make Your Predictions</h2>
+                <h2>Gör dina tips</h2>
 
                 <div class="ranking-container">
-                    <div class="ranking-title">Rank the Top 5 Teams</div>
+                    <div class="ranking-title">Ranka de 5 bästa stallen</div>
                     <div class="ranking-item">
                         <div class="ranking-position">1</div>
                         <select class="ranking-select" id="team1" onchange="updateTeamOptions(this)"></select>
@@ -249,7 +249,7 @@
                 </div>
 
                 <div class="ranking-container">
-                    <div class="ranking-title">Rank the Top 5 Drivers</div>
+                    <div class="ranking-title">Ranka de 5 bästa förarna</div>
                     <div class="ranking-item">
                         <div class="ranking-position">1</div>
                         <select class="ranking-select" id="driver1" onchange="updateDriverOptions(this)"></select>
@@ -272,11 +272,11 @@
                     </div>
                 </div>
 
-                <button onclick="savePredictions()">Save Predictions</button>
+                <button onclick="savePredictions()">Spara tips</button>
             </div>
 
             <div id="results" class="tab-content">
-                <h2>League Results</h2>
+                <h2>Ligaresultat</h2>
                 <div class="results-container" id="resultsContainer"></div>
             </div>
         </div>
@@ -376,18 +376,18 @@
         function savePredictions() {
             const userName = localStorage.getItem("userName");
             if (!userName) {
-                alert("Please log in first!");
+                alert("Var god logga in först!");
                 return;
             }
 
             // Validate all selections are made
             for (let i = 1; i <= 5; i++) {
                 if (!document.getElementById(`team${i}`).value) {
-                    alert(`Please select Team ${i}`);
+                    alert(`Var god välj Stall ${i}`);
                     return;
                 }
                 if (!document.getElementById(`driver${i}`).value) {
-                    alert(`Please select Driver ${i}`);
+                    alert(`Var god välj Förare ${i}`);
                     return;
                 }
             }
@@ -414,12 +414,12 @@
             // Save to Firebase
             database.ref('predictions/' + userName).set(predictions)
                 .then(() => {
-                    alert("Predictions saved successfully!");
+                    alert("Dina tips har sparats!");
                     loadResults();
                 })
                 .catch((error) => {
                     console.error("Error saving predictions:", error);
-                    alert("Failed to save predictions. Check the console for details.");
+                    alert("Misslyckades med att spara tips. Kolla konsolen för detaljer.");
                 });
         }
 
@@ -476,7 +476,7 @@
                         const teamsSection = document.createElement("div");
                         teamsSection.className = "prediction-section";
                         const teamsTitle = document.createElement("h4");
-                        teamsTitle.textContent = "Top 5 Teams";
+                        teamsTitle.textContent = "Topp 5 Stall";
                         teamsSection.appendChild(teamsTitle);
 
                         const teamsList = document.createElement("div");
@@ -493,7 +493,7 @@
                         const driversSection = document.createElement("div");
                         driversSection.className = "prediction-section";
                         const driversTitle = document.createElement("h4");
-                        driversTitle.textContent = "Top 5 Drivers";
+                        driversTitle.textContent = "Topp 5 Förare";
                         driversSection.appendChild(driversTitle);
 
                         const driversList = document.createElement("div");
@@ -516,7 +516,7 @@
                 })
                 .catch((error) => {
                     console.error("Error loading results:", error);
-                    alert("Failed to load results. Check the console for details.");
+                    alert("Misslyckades med att ladda resultat. Kolla konsolen för detaljer.");
                 });
         }
 
@@ -540,7 +540,7 @@
                 // Populate team dropdowns
                 for (let i = 1; i <= 5; i++) {
                     const select = document.getElementById(`team${i}`);
-                    select.innerHTML = '<option value="">Select Team</option>';
+                    select.innerHTML = '<option value="">Välj Stall</option>';
                     constructors.forEach(constructor => {
                         const option = document.createElement('option');
                         option.value = constructor.FUllName;
@@ -552,7 +552,7 @@
                 // Populate driver dropdowns
                 for (let i = 1; i <= 5; i++) {
                     const select = document.getElementById(`driver${i}`);
-                    select.innerHTML = '<option value="">Select Driver</option>';
+                    select.innerHTML = '<option value="">Välj Förare</option>';
                     drivers.forEach(driver => {
                         const option = document.createElement('option');
                         option.value = driver.FUllName;
@@ -563,14 +563,14 @@
 
             } catch (error) {
                 console.error("Error loading F1 data:", error);
-                alert("Failed to load F1 data. Using fallback values.");
+                alert("Misslyckades med att ladda F1-data. Använder reservvärden.");
                 // Fallback to hardcoded data
                 const drivers = ["Max Verstappen", "Sergio Pérez", "Lewis Hamilton", "George Russell", "Charles Leclerc"];
                 const constructors = ["Red Bull Racing", "Mercedes", "Ferrari", "McLaren", "Aston Martin"];
 
                 for (let i = 1; i <= 5; i++) {
                     const teamSelect = document.getElementById(`team${i}`);
-                    teamSelect.innerHTML = '<option value="">Select Team</option>';
+                    teamSelect.innerHTML = '<option value="">Välj Stall</option>';
                     constructors.forEach(constructor => {
                         const option = document.createElement('option');
                         option.value = constructor;
@@ -579,7 +579,7 @@
                     });
 
                     const driverSelect = document.getElementById(`driver${i}`);
-                    driverSelect.innerHTML = '<option value="">Select Driver</option>';
+                    driverSelect.innerHTML = '<option value="">Välj Förare</option>';
                     drivers.forEach(driver => {
                         const option = document.createElement('option');
                         option.value = driver;
@@ -594,7 +594,7 @@
         function login() {
             const userName = document.getElementById("userName").value.trim();
             if (!userName) {
-                alert("Please enter a username!");
+                alert("Var god ange ett användarnamn!");
                 return;
             }
             localStorage.setItem("userName", userName);
