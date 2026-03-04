@@ -178,7 +178,7 @@
         // Load F1 data from the official API
         async function loadF1Data() {
         try {
-            const response = await fetch("f1-data.json?t=" + newDate().getTime());
+            const response = await fetch("f1-data.json?t=" + new Date().getTime());
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
             const data = await response.json();
