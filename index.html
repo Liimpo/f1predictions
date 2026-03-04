@@ -176,46 +176,51 @@
         }
 
         // Load F1 data from the official API
-    async function loadF1Data() {
+        async function loadF1Data() {
         try {
-            // Load the JSON file from your GitHub repo
-            const response = await fetch("f1-data.json"); // Path to your JSON file
-            if (!response.ok) throw new Error("Failed to fetch F1 data");
+            const response = await fetch("f1-data.json?t=" + newDate().getTime());
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    
             const data = await response.json();
-            const drivers = data.drivers;
-            const constructors = data.constructors;
-
+            const allItems = data.Data.Value;
+    
+            // Separate drivers and constructors
+            const drivers = allItems.filter(item => item.PositionName === "DRIVER");
+            const constructors = allItems.filter(item => item.PositionName === "CONSTRUCTOR");
+    
+            console.log("Drivers:", drivers);
+            console.log("Constructors:", constructors);
+    
             // Populate driver dropdowns
-            const driverSelects = ['driver1', 'driver2', 'driver3'];
-            driverSelects.forEach(selectId => {
+            ['driver1', 'driver2', 'driver3'].forEach(selectId => {
                 const select = document.getElementById(selectId);
                 select.innerHTML = '<option value="">Select Driver</option>';
                 drivers.forEach(driver => {
                     const option = document.createElement('option');
-                    option.value = `${driver.first_name} ${driver.last_name}`;
-                    option.textContent = `${driver.first_name} ${driver.last_name} (${driver.team_name})`;
+                    option.value = driver.FUllName;
+                    option.textContent = `${driver.FUllName} (${driver.TeamName})`;
                     select.appendChild(option);
                 });
             });
-
+    
             // Populate constructor dropdowns
-            const constructorSelects = ['team1', 'team2', 'team3'];
-            constructorSelects.forEach(selectId => {
+            ['team1', 'team2', 'team3'].forEach(selectId => {
                 const select = document.getElementById(selectId);
                 select.innerHTML = '<option value="">Select Team</option>';
                 constructors.forEach(constructor => {
                     const option = document.createElement('option');
-                    option.value = constructor.name;
-                    option.textContent = constructor.name;
+                    option.value = constructor.FUllName;
+                    option.textContent = constructor.FUllName;
                     select.appendChild(option);
                 });
             });
+    
         } catch (error) {
             console.error("Error loading F1 data:", error);
-            // Fallback to hardcoded data if the file fails to load
-            const drivers = ["Max Verstappen", "Lewis Hamilton", "Charles Leclerc", "Lando Norris"];
-            const teams = ["Red Bull", "Mercedes", "Ferrari", "McLaren"];
-
+            // Fallback to hardcoded data
+            const drivers = ["Max Verstappen", "Sergio Pérez", "Lewis Hamilton", "George Russell"];
+            const constructors = ["Red Bull Racing", "Mercedes", "Ferrari", "McLaren"];
+    
             ['driver1', 'driver2', 'driver3'].forEach(selectId => {
                 const select = document.getElementById(selectId);
                 select.innerHTML = '<option value="">Select Driver</option>';
@@ -226,14 +231,14 @@
                     select.appendChild(option);
                 });
             });
-
+    
             ['team1', 'team2', 'team3'].forEach(selectId => {
                 const select = document.getElementById(selectId);
                 select.innerHTML = '<option value="">Select Team</option>';
-                teams.forEach(team => {
+                constructors.forEach(constructor => {
                     const option = document.createElement('option');
-                    option.value = team;
-                    option.textContent = team;
+                    option.value = constructor;
+                    option.textContent = constructor;
                     select.appendChild(option);
                 });
             });
