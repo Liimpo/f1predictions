@@ -6,46 +6,132 @@
     <title>F1 2026 Prediction League</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f5f5f5;
+            color: #333;
         }
         .container {
             max-width: 800px;
             margin: auto;
             background: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            outline: none;
+        }
+        .tab.active {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .ranking-container {
+            margin: 20px 0;
+        }
+        .ranking-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .ranking-position {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .ranking-item:nth-child(1) .ranking-position {
+            background: #f1c40f; /* Gold */
+        }
+        .ranking-item:nth-child(2) .ranking-position {
+            background: #95a5a6; /* Silver */
+        }
+        .ranking-item:nth-child(3) .ranking-position {
+            background: #e67e22; /* Bronze */
+        }
+        .ranking-select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         th, td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
         button {
-            padding: 8px 12px;
-            background: #007BFF;
+            padding: 10px 15px;
+            background: #3498db;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
         }
         button:hover {
-            background: #0056b3;
+            background: #2980b9;
         }
-        input, select {
-            padding: 8px;
-            margin: 5px 0;
+        input {
+            padding: 10px;
+            margin: 10px 0;
             width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
-        #login, #predictionForm, #results {
-            margin: 20px 0;
+        #teamSelect, #driverSelect {
+            display: none;
         }
     </style>
 </head>
@@ -53,43 +139,86 @@
     <div class="container">
         <h1>F1 2026 Prediction League</h1>
 
-        <!-- Login Section -->
         <div id="login">
             <h2>Join the League</h2>
             <input type="text" id="userName" placeholder="Enter Your Username" />
             <button onclick="login()">Join</button>
         </div>
 
-        <!-- Prediction Form (hidden until login) -->
-        <div id="predictionForm" style="display: none;">
-            <h2>Make Your Predictions</h2>
-            <h3>Rank the Teams</h3>
-            <select id="team1"><option value="">Select Team</option></select>
-            <select id="team2"><option value="">Select Team</option></select>
-            <select id="team3"><option value="">Select Team</option></select>
+        <div id="mainContent" style="display: none;">
+            <div class="tabs">
+                <button class="tab active" onclick="openTab('predictions')">Make Predictions</button>
+                <button class="tab" onclick="openTab('results')">League Results</button>
+            </div>
 
-            <h3>Rank the Drivers</h3>
-            <select id="driver1"><option value="">Select Driver</option></select>
-            <select id="driver2"><option value="">Select Driver</option></select>
-            <select id="driver3"><option value="">Select Driver</option></select>
+            <div id="predictions" class="tab-content active">
+                <h2>Make Your Predictions</h2>
 
-            <button onclick="savePredictions()">Save Predictions</button>
-        </div>
+                <div class="ranking-container">
+                    <div class="ranking-title">Rank the Top 5 Teams</div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">1</div>
+                        <select class="ranking-select" id="team1"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">2</div>
+                        <select class="ranking-select" id="team2"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">3</div>
+                        <select class="ranking-select" id="team3"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">4</div>
+                        <select class="ranking-select" id="team4"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">5</div>
+                        <select class="ranking-select" id="team5"></select>
+                    </div>
+                </div>
 
-        <!-- Results Table (hidden until predictions are saved) -->
-        <div id="results" style="display: none;">
-            <h2>League Results</h2>
-            <table id="resultsTable">
-                <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Team Predictions</th>
-                        <th>Driver Predictions</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="resultsBody"></tbody>
-            </table>
+                <div class="ranking-container">
+                    <div class="ranking-title">Rank the Top 5 Drivers</div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">1</div>
+                        <select class="ranking-select" id="driver1"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">2</div>
+                        <select class="ranking-select" id="driver2"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">3</div>
+                        <select class="ranking-select" id="driver3"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">4</div>
+                        <select class="ranking-select" id="driver4"></select>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="ranking-position">5</div>
+                        <select class="ranking-select" id="driver5"></select>
+                    </div>
+                </div>
+
+                <button onclick="savePredictions()">Save Predictions</button>
+            </div>
+
+            <div id="results" class="tab-content">
+                <h2>League Results</h2>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Team Predictions</th>
+                            <th>Driver Predictions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -113,21 +242,21 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Simple username login
-        function login() {
-            const userName = document.getElementById("userName").value.trim();
-            if (!userName) {
-                alert("Please enter a username!");
-                return;
+// Tab switching
+        function openTab(tabName) {
+            const tabs = document.getElementsByClassName("tab");
+            for (let tab of tabs) {
+                tab.classList.remove("active");
             }
-            localStorage.setItem("userName", userName);
-            document.getElementById("login").style.display = "none";
-            document.getElementById("predictionForm").style.display = "block";
-            loadF1Data();
-            loadResults();
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let content of tabContents) {
+                content.classList.remove("active");
+            }
+            event.currentTarget.classList.add("active");
+            document.getElementById(tabName).classList.add("active");
         }
 
-        // Save predictions
+        // Save predictions to Firebase
         function savePredictions() {
             const userName = localStorage.getItem("userName");
             if (!userName) {
@@ -140,22 +269,33 @@
                 teams: [
                     document.getElementById("team1").value,
                     document.getElementById("team2").value,
-                    document.getElementById("team3").value
+                    document.getElementById("team3").value,
+                    document.getElementById("team4").value,
+                    document.getElementById("team5").value
                 ],
                 drivers: [
                     document.getElementById("driver1").value,
                     document.getElementById("driver2").value,
-                    document.getElementById("driver3").value
+                    document.getElementById("driver3").value,
+                    document.getElementById("driver4").value,
+                    document.getElementById("driver5").value
                 ],
                 score: 0
             };
 
+            // Save to Firebase
             database.ref('predictions/' + userName).set(predictions)
-                .then(() => loadResults())
-                .catch((error) => console.error("Error saving predictions:", error));
+                .then(() => {
+                    alert("Predictions saved successfully!");
+                    loadResults();
+                })
+                .catch((error) => {
+                    console.error("Error saving predictions:", error);
+                    alert("Failed to save predictions. Check the console for details.");
+                });
         }
 
-        // Load and display results
+        // Load predictions from Firebase
         function loadResults() {
             database.ref('predictions').once('value')
                 .then((snapshot) => {
@@ -174,85 +314,104 @@
                     });
                     document.getElementById("results").style.display = "block";
                 })
-                .catch((error) => console.error("Error loading results:", error));
+                .catch((error) => {
+                    console.error("Error loading results:", error);
+                    alert("Failed to load results. Check the console for details.");
+                });
         }
 
-        // Load F1 data from the official API
+        // Load F1 data from JSON
         async function loadF1Data() {
-        try {
-            const response = await fetch("f1-data.json?t=" + new Date().getTime());
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    
-            const data = await response.json();
-            const allItems = data.Data.Value;
-    
-            // Separate drivers and constructors
-            const drivers = allItems.filter(item => item.PositionName === "DRIVER");
-            const constructors = allItems.filter(item => item.PositionName === "CONSTRUCTOR");
-    
-            console.log("Drivers:", drivers);
-            console.log("Constructors:", constructors);
-    
-            // Populate driver dropdowns
-            ['driver1', 'driver2', 'driver3'].forEach(selectId => {
-                const select = document.getElementById(selectId);
-                select.innerHTML = '<option value="">Select Driver</option>';
-                drivers.forEach(driver => {
-                    const option = document.createElement('option');
-                    option.value = driver.FUllName;
-                    option.textContent = `${driver.FUllName} (${driver.TeamName})`;
-                    select.appendChild(option);
+            try {
+                const response = await fetch("f1-data.json?t=" + new Date().getTime());
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+                const data = await response.json();
+                console.log("Full API response:", data);
+
+                // Extract drivers and constructors from Data.Value
+                const allItems = data.Data.Value;
+                const drivers = allItems.filter(item => item.PositionName === "DRIVER");
+                const constructors = allItems.filter(item => item.PositionName === "CONSTRUCTOR");
+
+                console.log("Drivers:", drivers);
+                console.log("Constructors:", constructors);
+
+                // Populate team dropdowns
+                ['team1', 'team2', 'team3', 'team4', 'team5'].forEach(selectId => {
+                    const select = document.getElementById(selectId);
+                    select.innerHTML = '<option value="">Select Team</option>';
+                    constructors.forEach(constructor => {
+                        const option = document.createElement('option');
+                        option.value = constructor.FUllName;
+                        option.textContent = constructor.FUllName;
+                        select.appendChild(option);
+                    });
                 });
-            });
-    
-            // Populate constructor dropdowns
-            ['team1', 'team2', 'team3'].forEach(selectId => {
-                const select = document.getElementById(selectId);
-                select.innerHTML = '<option value="">Select Team</option>';
-                constructors.forEach(constructor => {
-                    const option = document.createElement('option');
-                    option.value = constructor.FUllName;
-                    option.textContent = constructor.FUllName;
-                    select.appendChild(option);
+
+                // Populate driver dropdowns
+                ['driver1', 'driver2', 'driver3', 'driver4', 'driver5'].forEach(selectId => {
+                    const select = document.getElementById(selectId);
+                    select.innerHTML = '<option value="">Select Driver</option>';
+                    drivers.forEach(driver => {
+                        const option = document.createElement('option');
+                        option.value = driver.FUllName;
+                        option.textContent = `${driver.FUllName} (${driver.TeamName})`;
+                        select.appendChild(option);
+                    });
                 });
-            });
-    
-        } catch (error) {
-            console.error("Error loading F1 data:", error);
-            // Fallback to hardcoded data
-            const drivers = ["Max Verstappen", "Sergio Pérez", "Lewis Hamilton", "George Russell"];
-            const constructors = ["Red Bull Racing", "Mercedes", "Ferrari", "McLaren"];
-    
-            ['driver1', 'driver2', 'driver3'].forEach(selectId => {
-                const select = document.getElementById(selectId);
-                select.innerHTML = '<option value="">Select Driver</option>';
-                drivers.forEach(driver => {
-                    const option = document.createElement('option');
-                    option.value = driver;
-                    option.textContent = driver;
-                    select.appendChild(option);
+
+            } catch (error) {
+                console.error("Error loading F1 data:", error);
+                alert("Failed to load F1 data. Using fallback values.");
+                // Fallback to hardcoded data
+                const drivers = ["Max Verstappen", "Sergio Pérez", "Lewis Hamilton", "George Russell", "Charles Leclerc"];
+                const constructors = ["Red Bull Racing", "Mercedes", "Ferrari", "McLaren", "Aston Martin"];
+
+                ['driver1', 'driver2', 'driver3', 'driver4', 'driver5'].forEach((selectId, index) => {
+                    const select = document.getElementById(selectId);
+                    select.innerHTML = '<option value="">Select Driver</option>';
+                    drivers.forEach(driver => {
+                        const option = document.createElement('option');
+                        option.value = driver;
+                        option.textContent = driver;
+                        select.appendChild(option);
+                    });
                 });
-            });
-    
-            ['team1', 'team2', 'team3'].forEach(selectId => {
-                const select = document.getElementById(selectId);
-                select.innerHTML = '<option value="">Select Team</option>';
-                constructors.forEach(constructor => {
-                    const option = document.createElement('option');
-                    option.value = constructor;
-                    option.textContent = constructor;
-                    select.appendChild(option);
+
+                ['team1', 'team2', 'team3', 'team4', 'team5'].forEach((selectId, index) => {
+                    const select = document.getElementById(selectId);
+                    select.innerHTML = '<option value="">Select Team</option>';
+                    constructors.forEach(constructor => {
+                        const option = document.createElement('option');
+                        option.value = constructor;
+                        option.textContent = constructor;
+                        select.appendChild(option);
+                    });
                 });
-            });
+            }
         }
-    }
+
+        // Update login function to show main content
+        function login() {
+            const userName = document.getElementById("userName").value.trim();
+            if (!userName) {
+                alert("Please enter a username!");
+                return;
+            }
+            localStorage.setItem("userName", userName);
+            document.getElementById("login").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            loadF1Data();
+            loadResults();
+        }
 
         // Check for saved username on page load
         window.onload = () => {
             const userName = localStorage.getItem("userName");
             if (userName) {
                 document.getElementById("login").style.display = "none";
-                document.getElementById("predictionForm").style.display = "block";
+                document.getElementById("mainContent").style.display = "block";
                 loadF1Data();
                 loadResults();
             }
