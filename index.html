@@ -305,6 +305,7 @@
         // Global variables for selected items
         let selectedTeams = [];
         let selectedDrivers = [];
+        let f1Data = null;
 
         // Tab switching
         function openTab(tabName) {
@@ -435,6 +436,11 @@
                         predictions.push(childSnapshot.val());
                     });
 
+                    // Recalculate scores using current standings
+                    if (f1Data) {
+                        predictions.forEach(p => { p.score = calculateScore(p, f1Data); });
+                    }
+
                     // Sort predictions by score (descending)
                     predictions.sort((a, b) => b.score - a.score);
 
@@ -520,6 +526,51 @@
                 });
         }
 
+        // Calculate score based on predictions vs actual championship standings
+        function calculateScore(predictions, f1Data) {
+            const allItems = f1Data.Data.Value;
+            const drivers = allItems.filter(item => item.PositionName === "DRIVER");
+            const constructors = allItems.filter(item => item.PositionName === "CONSTRUCTOR");
+
+            // Build lookup maps: name -> championship position
+            const driverPos = {};
+            drivers.forEach(d => { driverPos[d.FUllName] = d.ChampionshipPosition || 99; });
+            const constructorPos = {};
+            constructors.forEach(c => { constructorPos[c.FUllName] = c.ChampionshipPosition || 99; });
+
+            let score = 0;
+
+            // Score drivers: predicted positions 1-5 vs actual positions 1-5
+            const actualTop5Drivers = new Set(
+                drivers.filter(d => (d.ChampionshipPosition || 99) <= 5).map(d => d.FUllName)
+            );
+            predictions.drivers.forEach((name, idx) => {
+                const predictedPos = idx + 1;
+                const actualPos = driverPos[name] || 99;
+                if (actualPos === predictedPos) {
+                    score += 5; // Exact position match
+                } else if (actualTop5Drivers.has(name)) {
+                    score += 1; // In top 5 but wrong position
+                }
+            });
+
+            // Score constructors: predicted positions 1-5 vs actual positions 1-5
+            const actualTop5Constructors = new Set(
+                constructors.filter(c => (c.ChampionshipPosition || 99) <= 5).map(c => c.FUllName)
+            );
+            predictions.teams.forEach((name, idx) => {
+                const predictedPos = idx + 1;
+                const actualPos = constructorPos[name] || 99;
+                if (actualPos === predictedPos) {
+                    score += 5; // Exact position match
+                } else if (actualTop5Constructors.has(name)) {
+                    score += 1; // In top 5 but wrong position
+                }
+            });
+
+            return score;
+        }
+
         // Load F1 data from JSON
         async function loadF1Data() {
             try {
@@ -527,6 +578,7 @@
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
                 const data = await response.json();
+                f1Data = data;
                 console.log("Full API response:", data);
 
                 // Extract drivers and constructors from Data.Value

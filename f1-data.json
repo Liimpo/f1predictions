@@ -54,7 +54,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 10,
+        "ChampionshipPoints": 1
       },
       {
         "PlayerId": "11059",
@@ -109,7 +111,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 14,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "12",
@@ -164,7 +168,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "129",
@@ -219,7 +225,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "111",
@@ -274,7 +282,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "11051",
@@ -329,7 +339,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 9,
+        "ChampionshipPoints": 2
       },
       {
         "PlayerId": "121",
@@ -384,7 +396,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 16,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "13",
@@ -439,7 +453,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "115",
@@ -494,7 +510,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 3,
+        "ChampionshipPoints": 15
       },
       {
         "PlayerId": "110",
@@ -549,7 +567,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 4,
+        "ChampionshipPoints": 12
       },
       {
         "PlayerId": "11031",
@@ -604,7 +624,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 7,
+        "ChampionshipPoints": 6
       },
       {
         "PlayerId": "118",
@@ -659,7 +681,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 11,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "117",
@@ -714,7 +738,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 5,
+        "ChampionshipPoints": 10
       },
       {
         "PlayerId": "1982",
@@ -769,7 +795,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "124",
@@ -824,7 +852,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 1,
+        "ChampionshipPoints": 25
       },
       {
         "PlayerId": "11161",
@@ -879,7 +909,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 2,
+        "ChampionshipPoints": 18
       },
       {
         "PlayerId": "114",
@@ -934,7 +966,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 13,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "11149",
@@ -989,7 +1023,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 8,
+        "ChampionshipPoints": 4
       },
       {
         "PlayerId": "131",
@@ -1044,7 +1080,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 6,
+        "ChampionshipPoints": 8
       },
       {
         "PlayerId": "11032",
@@ -1099,7 +1137,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 17,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "125",
@@ -1154,7 +1194,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 15,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "11",
@@ -1209,7 +1251,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 12,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "28",
@@ -1264,7 +1308,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 1,
+        "ChampionshipPoints": 43
       },
       {
         "PlayerId": "27",
@@ -1319,7 +1365,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 3,
+        "ChampionshipPoints": 10
       },
       {
         "PlayerId": "29",
@@ -1374,7 +1422,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 4,
+        "ChampionshipPoints": 8
       },
       {
         "PlayerId": "25",
@@ -1429,7 +1479,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 2,
+        "ChampionshipPoints": 27
       },
       {
         "PlayerId": "23",
@@ -1484,7 +1536,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 8,
+        "ChampionshipPoints": 1
       },
       {
         "PlayerId": "210",
@@ -1539,7 +1593,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 9,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "24",
@@ -1594,7 +1650,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 10,
+        "ChampionshipPoints": 0
       },
       {
         "PlayerId": "26",
@@ -1649,7 +1707,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 5,
+        "ChampionshipPoints": 6
       },
       {
         "PlayerId": "2640",
@@ -1704,7 +1764,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 7,
+        "ChampionshipPoints": 2
       },
       {
         "PlayerId": "2636",
@@ -1759,7 +1821,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 6,
+        "ChampionshipPoints": 4
       },
       {
         "PlayerId": "2641",
@@ -1814,7 +1878,9 @@
         "new_value": 0.0,
         "ProjectedGamedayPoints": "0",
         "ProjectedNoNegativePoints": "0",
-        "ProjectedOverallPpints": "0"
+        "ProjectedOverallPpints": "0",
+        "ChampionshipPosition": 11,
+        "ChampionshipPoints": 0
       }
     ],
     "FeedTime": {
