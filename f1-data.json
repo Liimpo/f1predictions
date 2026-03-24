@@ -56,7 +56,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 7,
-        "ChampionshipPoints": 9
+        "ChampionshipPoints": 9,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 10
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 6
+          }
+        ]
       },
       {
         "PlayerId": "11059",
@@ -113,7 +125,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 15,
-        "ChampionshipPoints": 1
+        "ChampionshipPoints": 1,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 14
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 10
+          }
+        ]
       },
       {
         "PlayerId": "12",
@@ -170,7 +194,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 21,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "129",
@@ -227,7 +263,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 22,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "111",
@@ -284,7 +332,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 20,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 11
+          }
+        ]
       },
       {
         "PlayerId": "11051",
@@ -341,7 +401,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 14,
-        "ChampionshipPoints": 2
+        "ChampionshipPoints": 2,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 9
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "121",
@@ -398,7 +470,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 19,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 16
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 15
+          }
+        ]
       },
       {
         "PlayerId": "13",
@@ -455,7 +539,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 18,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 13
+          }
+        ]
       },
       {
         "PlayerId": "115",
@@ -512,7 +608,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 3,
-        "ChampionshipPoints": 34
+        "ChampionshipPoints": 34,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 3
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 4
+          }
+        ]
       },
       {
         "PlayerId": "110",
@@ -569,7 +677,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 4,
-        "ChampionshipPoints": 33
+        "ChampionshipPoints": 33,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 4
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 3
+          }
+        ]
       },
       {
         "PlayerId": "11031",
@@ -626,7 +746,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 5,
-        "ChampionshipPoints": 17
+        "ChampionshipPoints": 17,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 7
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 5
+          }
+        ]
       },
       {
         "PlayerId": "118",
@@ -683,7 +815,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 16,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 11
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 14
+          }
+        ]
       },
       {
         "PlayerId": "117",
@@ -740,7 +884,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 6,
-        "ChampionshipPoints": 15
+        "ChampionshipPoints": 15,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 5
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "1982",
@@ -797,7 +953,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 12,
-        "ChampionshipPoints": 3
+        "ChampionshipPoints": 3,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "124",
@@ -854,7 +1022,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 1,
-        "ChampionshipPoints": 51
+        "ChampionshipPoints": 51,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 1
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 2
+          }
+        ]
       },
       {
         "PlayerId": "11161",
@@ -911,7 +1091,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 2,
-        "ChampionshipPoints": 47
+        "ChampionshipPoints": 47,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 2
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 1
+          }
+        ]
       },
       {
         "PlayerId": "114",
@@ -968,7 +1160,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 9,
-        "ChampionshipPoints": 8
+        "ChampionshipPoints": 8,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 13
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 7
+          }
+        ]
       },
       {
         "PlayerId": "11149",
@@ -1025,7 +1229,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 10,
-        "ChampionshipPoints": 4
+        "ChampionshipPoints": 4,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 8
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 12
+          }
+        ]
       },
       {
         "PlayerId": "131",
@@ -1082,7 +1298,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 8,
-        "ChampionshipPoints": 8
+        "ChampionshipPoints": 8,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 6
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "11032",
@@ -1139,7 +1367,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 11,
-        "ChampionshipPoints": 4
+        "ChampionshipPoints": 4,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": null
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 8
+          }
+        ]
       },
       {
         "PlayerId": "125",
@@ -1196,7 +1436,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 13,
-        "ChampionshipPoints": 2
+        "ChampionshipPoints": 2,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 15
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 9
+          }
+        ]
       },
       {
         "PlayerId": "11",
@@ -1253,7 +1505,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 17,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 12
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": null
+          }
+        ]
       },
       {
         "PlayerId": "28",
@@ -1310,7 +1574,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 1,
-        "ChampionshipPoints": 98
+        "ChampionshipPoints": 98,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 1
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 1
+          }
+        ]
       },
       {
         "PlayerId": "27",
@@ -1367,7 +1643,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 3,
-        "ChampionshipPoints": 18
+        "ChampionshipPoints": 18,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 3
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 9
+          }
+        ]
       },
       {
         "PlayerId": "29",
@@ -1424,7 +1712,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 5,
-        "ChampionshipPoints": 12
+        "ChampionshipPoints": 12,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 4
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 4
+          }
+        ]
       },
       {
         "PlayerId": "25",
@@ -1481,7 +1781,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 2,
-        "ChampionshipPoints": 67
+        "ChampionshipPoints": 67,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 2
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 2
+          }
+        ]
       },
       {
         "PlayerId": "23",
@@ -1538,7 +1850,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 7,
-        "ChampionshipPoints": 10
+        "ChampionshipPoints": 10,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 8
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 6
+          }
+        ]
       },
       {
         "PlayerId": "210",
@@ -1595,7 +1919,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 9,
-        "ChampionshipPoints": 2
+        "ChampionshipPoints": 2,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 9
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 8
+          }
+        ]
       },
       {
         "PlayerId": "24",
@@ -1652,7 +1988,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 11,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 11
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 11
+          }
+        ]
       },
       {
         "PlayerId": "26",
@@ -1709,7 +2057,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 4,
-        "ChampionshipPoints": 17
+        "ChampionshipPoints": 17,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 5
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 3
+          }
+        ]
       },
       {
         "PlayerId": "2640",
@@ -1766,7 +2126,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 8,
-        "ChampionshipPoints": 2
+        "ChampionshipPoints": 2,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 7
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 7
+          }
+        ]
       },
       {
         "PlayerId": "2636",
@@ -1823,7 +2195,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 6,
-        "ChampionshipPoints": 12
+        "ChampionshipPoints": 12,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 6
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 5
+          }
+        ]
       },
       {
         "PlayerId": "2641",
@@ -1880,7 +2264,19 @@
         "ProjectedNoNegativePoints": "0",
         "ProjectedOverallPpints": "0",
         "ChampionshipPosition": 10,
-        "ChampionshipPoints": 0
+        "ChampionshipPoints": 0,
+        "RaceResults": [
+          {
+            "round": 1,
+            "race": "Australian GP",
+            "position": 10
+          },
+          {
+            "round": 2,
+            "race": "Chinese GP",
+            "position": 10
+          }
+        ]
       }
     ],
     "FeedTime": {

@@ -209,7 +209,17 @@
     <div class="container">
         <h1>F1 2026 Tipsliga</h1>
 
-        <div id="login">
+        <!-- Public results tab always visible -->
+        <div class="tabs" id="publicTabs">
+            <button class="tab" onclick="showPublicResults()">Ligaresultat</button>
+            <button class="tab" onclick="showLogin()">Gör dina tips</button>
+        </div>
+        <div id="publicResults">
+            <h2>Ligaresultat</h2>
+            <div class="results-container" id="publicResultsContainer"></div>
+        </div>
+
+        <div id="login" style="display: none;">
             <h2>Gå med i ligan</h2>
             <input type="text" id="userName" placeholder="Ange ditt användarnamn" />
             <button onclick="login()">Gå med</button>
@@ -424,11 +434,11 @@
                 });
         }
 
-        // Load predictions from Firebase and display as cards
-        function loadResults() {
+        // Render results into a given container element id
+        function renderResults(containerId) {
             database.ref('predictions').once('value')
                 .then((snapshot) => {
-                    const resultsContainer = document.getElementById("resultsContainer");
+                    const resultsContainer = document.getElementById(containerId);
                     resultsContainer.innerHTML = "";
 
                     const predictions = [];
@@ -436,12 +446,10 @@
                         predictions.push(childSnapshot.val());
                     });
 
-                    // Recalculate scores using current standings
                     if (f1Data) {
                         predictions.forEach(p => { p.score = calculateScore(p, f1Data); });
                     }
 
-                    // Sort predictions by score (descending)
                     predictions.sort((a, b) => b.score - a.score);
 
                     // Create a card for each prediction
@@ -526,49 +534,62 @@
                 });
         }
 
-        // Calculate score based on predictions vs actual championship standings
+        // Scoring rules (from desc file):
+        // +1 for each correct pick in top 5
+        // +bonus for exact position: P1=+5, P2=+4, P3=+3, P4=+2, P5=+1
+        // Applies to both drivers and constructors
+        const positionBonus = { 1: 5, 2: 4, 3: 3, 4: 2, 5: 1 };
+
         function calculateScore(predictions, f1Data) {
             const allItems = f1Data.Data.Value;
             const drivers = allItems.filter(item => item.PositionName === "DRIVER");
             const constructors = allItems.filter(item => item.PositionName === "CONSTRUCTOR");
 
-            // Build lookup maps: name -> championship position
             const driverPos = {};
             drivers.forEach(d => { driverPos[d.FUllName] = d.ChampionshipPosition || 99; });
             const constructorPos = {};
             constructors.forEach(c => { constructorPos[c.FUllName] = c.ChampionshipPosition || 99; });
 
+            const actualTop5Drivers = new Set(drivers.filter(d => (d.ChampionshipPosition || 99) <= 5).map(d => d.FUllName));
+            const actualTop5Constructors = new Set(constructors.filter(c => (c.ChampionshipPosition || 99) <= 5).map(c => c.FUllName));
+
             let score = 0;
 
-            // Score drivers: predicted positions 1-5 vs actual positions 1-5
-            const actualTop5Drivers = new Set(
-                drivers.filter(d => (d.ChampionshipPosition || 99) <= 5).map(d => d.FUllName)
-            );
             predictions.drivers.forEach((name, idx) => {
                 const predictedPos = idx + 1;
                 const actualPos = driverPos[name] || 99;
-                if (actualPos === predictedPos) {
-                    score += 5; // Exact position match
-                } else if (actualTop5Drivers.has(name)) {
-                    score += 1; // In top 5 but wrong position
+                if (actualTop5Drivers.has(name)) {
+                    score += 1; // In top 5
+                    if (actualPos === predictedPos) {
+                        score += positionBonus[predictedPos] || 0; // Exact position bonus
+                    }
                 }
             });
 
-            // Score constructors: predicted positions 1-5 vs actual positions 1-5
-            const actualTop5Constructors = new Set(
-                constructors.filter(c => (c.ChampionshipPosition || 99) <= 5).map(c => c.FUllName)
-            );
             predictions.teams.forEach((name, idx) => {
                 const predictedPos = idx + 1;
                 const actualPos = constructorPos[name] || 99;
-                if (actualPos === predictedPos) {
-                    score += 5; // Exact position match
-                } else if (actualTop5Constructors.has(name)) {
-                    score += 1; // In top 5 but wrong position
+                if (actualTop5Constructors.has(name)) {
+                    score += 1; // In top 5
+                    if (actualPos === predictedPos) {
+                        score += positionBonus[predictedPos] || 0; // Exact position bonus
+                    }
                 }
             });
 
             return score;
+        }
+
+        function showPublicResults() {
+            document.getElementById('publicResults').style.display = 'block';
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            renderResults('publicResultsContainer');
+        }
+
+        function showLogin() {
+            document.getElementById('publicResults').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
         }
 
         // Load F1 data from JSON
@@ -642,6 +663,10 @@
             }
         }
 
+        function loadResults() {
+            renderResults('resultsContainer');
+        }
+
         // Update login function to show main content
         function login() {
             const userName = document.getElementById("userName").value.trim();
@@ -650,19 +675,22 @@
                 return;
             }
             localStorage.setItem("userName", userName);
+            document.getElementById("publicResults").style.display = "none";
             document.getElementById("login").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
             loadF1Data();
             loadResults();
         }
 
-        // Check for saved username on page load
-        window.onload = () => {
+        // On page load: always show public results, load F1 data for scoring
+        window.onload = async () => {
+            await loadF1Data();
+            showPublicResults();
+
             const userName = localStorage.getItem("userName");
             if (userName) {
-                document.getElementById("login").style.display = "none";
+                document.getElementById("publicResults").style.display = "none";
                 document.getElementById("mainContent").style.display = "block";
-                loadF1Data();
                 loadResults();
             }
         };
